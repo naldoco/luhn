@@ -18,3 +18,4 @@ spec = do
   describe "doubleEveryOther" $ do
     it "doubles every other number starting from the right" $ do
       doubleEveryOther [1,2,3,4,5,6] `shouldBe` [2,2,6,4,10,6]
+      doubleEveryOther [2,9,4,5,6] `shouldBe` [2,18,4,10,6]
