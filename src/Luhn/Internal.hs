@@ -18,4 +18,4 @@ doubleEveryOther = reverse . zipWith (*) (cycle [1,2]) . reverse
 -- | Sum all number in the list
 -- | If a number is equal or greater than ten if sums its digits first
 sumDigits :: [Int] -> Int
-sumDigits = undefined
+sumDigits = sum . map (sum . toDigits)
