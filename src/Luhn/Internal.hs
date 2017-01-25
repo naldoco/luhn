@@ -1,5 +1,6 @@
 module Luhn.Internal
   ( toDigits
+  , fromDigits
   , doubleEveryOther
   , sumDigits
   ) where
@@ -10,6 +11,10 @@ toDigits = go []
   where go xs n
           | n <= 0    = xs
           | otherwise = go (m:xs) d  where (d,m) = n `divMod` 10
+
+-- | Returns a number given its digits in a list
+fromDigits :: [Int] -> Int
+fromDigits = undefined
 
 -- | Double every other digit on the list starting from the right most number
 doubleEveryOther :: [Int] -> [Int]
