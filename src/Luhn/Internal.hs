@@ -14,7 +14,7 @@ toDigits = go []
 
 -- | Returns a number given its digits in a list
 fromDigits :: [Int] -> Int
-fromDigits = undefined
+fromDigits = sum . zipWith (*) [10 ^ i | i <- [0..]] . reverse
 
 -- | Double every other digit on the list starting from the right most number
 doubleEveryOther :: [Int] -> [Int]
