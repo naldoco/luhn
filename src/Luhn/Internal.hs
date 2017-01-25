@@ -5,7 +5,10 @@ module Luhn.Internal
   ) where
 
 toDigits :: Int -> [Int]
-toDigits _ = [1,2,3,4,5,6,7]
+toDigits = go []
+  where go xs n
+          | n <= 0    = xs
+          | otherwise = go (m:xs) d  where (d,m) = n `divMod` 10
 
 doubleEveryOther :: [Int] -> [Int]
 doubleEveryOther = undefined
