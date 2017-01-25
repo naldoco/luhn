@@ -15,3 +15,6 @@ spec = do
     it "Converts a number to a list of digits" $ do
       toDigits 1234567 `shouldBe` [1,2,3,4,5,6,7]
       toDigits 2468 `shouldBe` [2,4,6,8]
+  describe "doubleEveryOther" $ do
+    it "doubles every other number starting from the right" $ do
+      doubleEveryOther [1,2,3,4,5,6] `shouldBe` [2,2,6,4,10,6]
