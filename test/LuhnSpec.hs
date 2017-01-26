@@ -15,10 +15,14 @@ spec = do
     it "Converts a number to a list of digits" $ do
       toDigits 1234567 `shouldBe` [1,2,3,4,5,6,7]
       toDigits 2468 `shouldBe` [2,4,6,8]
-    context "For Int (QuickCheck)" $
-      it "Holds on: x == fromDigits(toDigits x)" $ do
+    context "For Int, but natural numbers (QuickCheck).  Valid input" $
+      it "Holds on:x >= 0 ==> (fromDigits . toDigits) x == x" $ do
         property $ \x ->
-          x == (fromDigits . toDigits) x
+          x >= 0 ==> (fromDigits . toDigits) x == x
+    context "For Int, but negative numbers (QuickCheck). Invalid input" $
+      it "Holds on:x <  0 ==> (fromDigits . toDigits) x == 0" $ do
+        property $ \x ->
+          x < 0 ==> (fromDigits . toDigits) x == 0
   describe "fromDigits" $ do
     it "Converts a list of digits to a number" $ do
       fromDigits [1..7] `shouldBe` 1234567
