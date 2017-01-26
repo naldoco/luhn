@@ -38,3 +38,7 @@ spec = do
     context "When some numbers are greater than 9" $
       it "sums their digits first before summing the list" $
         sumDigits [2,12,4,14,6,8] `shouldBe` 28
+  describe "validate" $ do
+    it "Retuns True if number is valid, False otherwise" $ do
+      1234567889 `shouldSatisfy` validate
+      1234567887 `shouldNotSatisfy` validate
